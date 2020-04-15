@@ -1,35 +1,40 @@
 
 The project repository describes about cucumber framework and also integration with docker:
 
-1) FIRST WE HAVE TO PULL SELENIUM/HUB IMAGE
-DOCKER PULL SELENIUM/HUB
+<svg height="30" width="200">
+  <text x="0" y="15" fill="red">
+  
+1) first we have to pull selenium/hub image
+docker pull selenium/hub </text>
+  
+</svg>
 
-2) PULL THE BROWSER IMAGE TO REGISTER WITH HUB AS NODE
-DOCKER PULL SELENIUM/NODE-CHROME-DEBUG
+2) pull the browser image to register with hub as node
+docker pull selenium/node-chrome-debug
 
-3) PULL THE SECOND BROWSER IMAGE TO REGISTER WITH HUB AS NODE
-DOCKER PULL SELENIUM/NODE-FIREFOX-DEBUG
+3) pull the second browser image to register with hub as node
+docker pull selenium/node-firefox-debug
 
-CONFIGURATION:
-RUN THE SELENIUM/HUB IMAGE AND EXPOSE THE HUB PORT (4444) TO LOCAL PORT TO ACCESS FROM LOCAL SYSTEM:
-DOCKER RUN -D -P 4444:4444 --NAME SELENIUM-HUB SELENIUM/HUB
+configuration:
+run the selenium/hub image and expose the hub port (4444) to local port to access from local system:
+docker run -d -p 4444:4444 --name selenium-hub selenium/hub
 
-THEN REGISTGER BROWSER(CHROME) AS NODE 1:
- DOCKER RUN -D --LINK SELENIUM-HUB:HUB SELENIUM/NODE-CHROME-DEBUG
+then registger browser(chrome) as node 1:
+ docker run -d --link selenium-hub:hub selenium/node-chrome-debug
 
-THEN REGISTGER BROWSER(FIREFOX) AS NODE 1: 
- DOCKER RUN -D --LINK SELENIUM-HUB:HUB SELENIUM/NODE-FIREFOX-DEBUG
+then registger browser(firefox) as node 1: 
+ docker run -d --link selenium-hub:hub selenium/node-firefox-debug
 
-ONCE THIS IS DONE, VERIFY THE ALL THE IMAGES ARE RUNNING AS CONTAINERS:
-DOCKER PS -A
+once this is done, verify the all the images are running as containers:
+docker ps -a
 
-THEN CREATE DESCRIBED CAPABILITIES AND ASSIGN TO REMOTEWEBDRIVER:
-DESIREDCAPABILITIES CAP=
-DESIREDCAPABILITIES.CHROME();
-            CAP.SETCAPABILITY("VERSION", "");
-            CAP.SETCAPABILITY("PLATFORM", "LINUX");
-            DRIVER=NEW REMOTEWEBDRIVER(NEW URL("HTTP://LOCALHOST:4446/WD/HUB"),CAP);
-			DRIVER.GET("URL TO NAVIGATE");
+then create described capabilities and assign to remotewebdriver:
+desiredcapabilities cap=
+desiredcapabilities.chrome();
+            cap.setcapability("version", "");
+            cap.setcapability("platform", "linux");
+            driver=new remotewebdriver(new url("http://localhost:4444/wd/hub"),cap);
+			driver.get("url to navigate");
 
 Also this Project is integrate with Extent Report.
 The reference taken from vimalselvam git repo: https://github.com/email2vimalraj/CucumberExtentReporter
