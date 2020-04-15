@@ -1,4 +1,15 @@
 
+<!DOCTYPE html>
+<html>
+<body>
+
+<svg height="30" width="200">
+  <text x="0" y="15" fill="red">I love SVG!</text>
+  Sorry, your browser does not support inline SVG.
+</svg>
+ 
+
+
 The project repository describes about cucumber framework and also integration with docker:
 
 <svg height="30" width="200">
@@ -38,3 +49,5 @@ desiredcapabilities.chrome();
 
 Also this Project is integrate with Extent Report.
 The reference taken from vimalselvam git repo: https://github.com/email2vimalraj/CucumberExtentReporter
+</body>
+</html>
