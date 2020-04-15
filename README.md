@@ -1,26 +1,12 @@
 
-<!DOCTYPE html>
-<html>
-<body>
-
-<svg height="30" width="200">
-  <text x="0" y="15" fill="red">I love SVG!</text>
-  Sorry, your browser does not support inline SVG.
-</svg>
- 
-
 
 The project repository describes about cucumber framework and also integration with docker:
 
-<svg height="30" width="200">
-  <text x="0" y="15" fill="red">
-  
-1) first we have to pull selenium/hub image
-docker pull selenium/hub </text>
-  
-</svg>
 
-2) pull the browser image to register with hub as node
+1) First we have to pull selenium/hub image:
+docker pull selenium/hub 
+
+2) Pull the browser image to register with hub as node:
 docker pull selenium/node-chrome-debug
 
 3) pull the second browser image to register with hub as node
@@ -49,5 +35,4 @@ desiredcapabilities.chrome();
 
 Also this Project is integrate with Extent Report.
 The reference taken from vimalselvam git repo: https://github.com/email2vimalraj/CucumberExtentReporter
-</body>
-</html>
+
