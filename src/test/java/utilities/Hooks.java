@@ -1,5 +1,7 @@
 package utilities;
 
+import java.net.MalformedURLException;
+
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
@@ -12,7 +14,7 @@ public class Hooks {
 	static int counter=0;
 	
 	@Before
-	public void launch(){  
+	public void launch() throws MalformedURLException{  
 		ReusableActions.launch();
 	}
 	

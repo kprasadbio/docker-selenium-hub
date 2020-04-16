@@ -9,7 +9,7 @@ import cucumber.api.java.en.When;
 import utilities.GlobalPageInitilization;
 import utilities.ReusableActions;
 
-public class stepDef 
+public class RegistrationSteps 
 {
 	
 	
