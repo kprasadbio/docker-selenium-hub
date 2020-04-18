@@ -19,15 +19,12 @@ public class Hooks {
 	}
 	
 	@After
-	public void terdown(Scenario scenario){
+	public void terdown(Scenario scenario) throws Exception{
 		 System.out.println(++counter ); 
 		System.out.println(scenario.getName().replace(" ", "_"));
 		 
 		try {
 		     if (scenario.isFailed()) {
-//		       final byte[] screenshot = ((TakesScreenshot) ReusableActions.driver())
-//		           .getScreenshotAs(OutputType.BYTES);
-//		       scenario.embed(screenshot, "image/png");
 		    	 
 		    	 final byte[] screenshot = ((TakesScreenshot) ReusableActions.driver())
 				           .getScreenshotAs(OutputType.BYTES);

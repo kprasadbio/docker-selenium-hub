@@ -1,15 +1,17 @@
 package utilities;
 
+import java.io.File;
 import java.net.MalformedURLException;
-import java.net.URL;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.ElementNotVisibleException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
+import cucumber.api.Scenario;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class ReusableActions {
@@ -61,5 +63,26 @@ public class ReusableActions {
 		
 		element.sendKeys(data);
 	}
+	
+	public static void takeSnapShot(Scenario scenario) throws Exception{
+
+        
+
+        TakesScreenshot scrShot =((TakesScreenshot)driver);
+
+        //Call getScreenshotAs method to create image file
+
+                File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
+
+            //Move image file to new destination
+
+                File DestFile=new File("c:/screenshots/");
+                System.out.println(DestFile.getPath());
+
+                //Copy file at destination
+
+                FileUtils.copyFile(SrcFile, DestFile);
+
+    }
 
 }
